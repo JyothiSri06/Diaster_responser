@@ -53,7 +53,8 @@ export const useWebSocket = () => {
         reconnectAttemptsRef.current += 1;
 
         if (reconnectAttemptsRef.current >= maxReconnectAttempts) {
-          toast.error('Failed to connect to real-time services');
+          toast.error(`Connection Failed: ${WEBSOCKET_URL}`);
+          console.error(`❌ Exhausted reconnect attempts to: ${WEBSOCKET_URL}`);
         }
       });
 
